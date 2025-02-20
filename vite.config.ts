@@ -9,6 +9,6 @@ export default defineConfig({
     tailwindcss(),
   ],
   server: {
-    allowedHosts: ["erwansinck.com"]
+    allowedHosts: ["erwansinck.com","bertrant.erwansinck.com"]
   }
 })
