@@ -17,21 +17,6 @@ function App() {
     { icon: <FaSquareXTwitter />, color: 'x', label: 'x', url:"https://x.erwansinck.com" },
   ];
 
-  const [userCount, setUserCount] = useState(0);
-
-    useEffect(() => {
-        const ws = new WebSocket("ws://localhost:20900");
-
-        ws.onmessage = (event) => {
-            const data = JSON.parse(event.data);
-            setUserCount(data.users);
-        };
-
-        return () => {
-            ws.close();
-        };
-    }, []);
-
 
   return (
     <div className="w-full h-screen min-h-screen relative">
@@ -96,9 +81,6 @@ function App() {
         <GlassIcons items={items} className="custom-class"/>
       </div>
 
-      <div className="bottom-2 right-2 bg-gray-200 text-black px-3 py-1 rounded-md shadow-md fixed">
-        Personnes connectées : {userCount}
-      </div>
     </div>
   )
 }
