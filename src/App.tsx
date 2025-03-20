@@ -6,6 +6,7 @@ import GlassIcons from './componants/GlassIcons'
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
+import { useEffect, useState } from "react"
 
 
 function App() {
@@ -16,11 +17,26 @@ function App() {
     { icon: <FaSquareXTwitter />, color: 'x', label: 'x', url:"https://x.erwansinck.com" },
   ];
 
+  const [userCount, setUserCount] = useState(0);
+
+    useEffect(() => {
+        const ws = new WebSocket("ws://localhost:20900");
+
+        ws.onmessage = (event) => {
+            const data = JSON.parse(event.data);
+            setUserCount(data.users);
+        };
+
+        return () => {
+            ws.close();
+        };
+    }, []);
+
 
   return (
     <div className="w-full h-screen min-h-screen relative">
-     <div className="w-full h-screen min-h-screen">
-      <Iridescence
+      <div className="fixed top-0 left-0 w-full h-full -z-10">
+        <Iridescence
           color={[0.30, 0.30, 0.30]}
           mouseReact={false}
           amplitude={0.1}
@@ -78,6 +94,10 @@ function App() {
 
       <div className="absolute text-white left-[50%] transform translate-x-[-50%] top-150">
         <GlassIcons items={items} className="custom-class"/>
+      </div>
+
+      <div className="bottom-2 right-2 bg-gray-200 text-black px-3 py-1 rounded-md shadow-md fixed">
+        Personnes connectées : {userCount}
       </div>
     </div>
   )
