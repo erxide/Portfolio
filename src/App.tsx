@@ -6,7 +6,6 @@ import GlassIcons from './componants/GlassIcons'
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
-import { useEffect, useState } from "react"
 
 
 function App() {
