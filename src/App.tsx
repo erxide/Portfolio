@@ -94,11 +94,11 @@ function App() {
           <p>Date de publication : 2025</p>
 
           <h1 className="mt-5 mb-2">2. Hébergement</h1>
-          <p>Ce site est hébergé sur un nœud appartenant à l'éditeur, avec un reverse proxy installé sur un autre nœud hébergé chez OVH.</p>
+          <p>Ce site est hébergé sur un nœud appartenant à l'éditeur, avec un reverse proxy cloudflare</p>
 
           <h1 className="mt-5 mb-2">3. Technologies utilisées</h1>
           <p>Ce site est développé en React</p>
-          <p>Hébergé via Docker, avec un reverse proxy Nginx également dockerisé</p>
+          <p>Hébergé via Docker, avec un reverse proxy cloudflare</p>
 
           <h1 className="mt-5 mb-2">4. Licence et Utilisation du Contenu</h1>
           <p>Sauf mention contraire, l’ensemble des contenus présents sur ce site (textes, images, graphismes, logo, icônes, etc.) sont mis à disposition sous la Licence MIT.</p>
